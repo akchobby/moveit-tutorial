@@ -1,0 +1,14 @@
+version: '3.3'
+
+services:
+  roscore:
+    image: moveit:tutorial
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix
+      - /run/user/1001/gdm/Xauthority:/root/.Xauthority:ro
+    environment:
+      - DISPLAY=${DISPLAY}
+      - COOKIE=${COOKIE}
+    network_mode: "host"
+    command: roscore
+
